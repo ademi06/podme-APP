@@ -2,18 +2,31 @@ package uk.ac.tees.w9312536.bukolafatunde;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
     TextView forgotPassword, signUp;
     EditText etEmail, etPassword;
     Button loginButton;
+    private ProgressBar progressBar;
+    private FirebaseAuth mAuth;
+    FirebaseFirestore db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.editTextEmail);
         etPassword = findViewById(R.id.editTextPassword);
         loginButton = findViewById(R.id.loginButton);
+        progressBar = findViewById(R.id.progressBar);
+
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
 
         signUp.setOnClickListener(v -> {
             /* navigate to sign up activity */
@@ -37,5 +55,53 @@ public class LoginActivity extends AppCompatActivity {
             Intent signUp = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
             startActivity(signUp);
         });
+
+        loginButton.setOnClickListener(v -> {
+            /*  */
+            login();
+        });
+    }
+
+    private void login() {
+        progressBar.setVisibility(View.VISIBLE);
+        /* validate that email and password fields are not empty else show error */
+        if (etEmail.getText().length() == 0) {
+            progressBar.setVisibility(View.GONE);
+            etEmail.setError("Please enter email");
+            return;
+        }
+        if (etPassword.getText().length() == 0) {
+            progressBar.setVisibility(View.GONE);
+            etPassword.setError("Please enter password");
+            return;
+        }
+        loginButton.setClickable(false);
+        /* get the email and password to string for temporary storage in the activity */
+        final String email = etEmail.getText().toString();
+        final String password = etPassword.getText().toString();
+        /* hide keyboard layout */
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        assert inputManager != null;
+        inputManager.hideSoftInputFromWindow(Objects.requireNonNull(getCurrentFocus()).getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        /* navigate to main activity if email and password matches what is in the database */
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        progressBar.setVisibility(View.GONE);
+                        loginButton.setClickable(true);
+                        Toast.makeText(LoginActivity.this, "User Authentication Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
     }
 }

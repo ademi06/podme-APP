@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bukola Fatunde</string>
+    <string name="err_msg_password_confirm">Password Mismatch</string>
 </resources>

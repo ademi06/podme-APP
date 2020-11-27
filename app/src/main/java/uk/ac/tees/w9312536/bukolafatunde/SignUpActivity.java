@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,10 +35,12 @@ public class SignUpActivity extends AppCompatActivity {
     TextView login;
     EditText etName, etEmail, etPassword, etPasswordAgain;
     Button signUpButton;
+    CheckBox mCheckBox;
     private ProgressBar progressBar;
     String sPassword, sConfirmPassword, sEmail, sName, userId, saveCurrentDate, saveCurrentTime;
     /* Constant for logging */
     private static final String TAG = SignUpActivity.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        mCheckBox = findViewById(R.id.checkbox_terms);
 
 
         login.setOnClickListener(v -> {
@@ -63,9 +67,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         signUpButton.setOnClickListener(v -> {
             /* validate edit text field and then proceed to sign up */
+
             register();
         });
     }
+
 
     private void register() {
         progressBar.setVisibility(View.VISIBLE);
@@ -91,6 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
+
         /* hide keyboard layout */
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -100,18 +107,17 @@ public class SignUpActivity extends AppCompatActivity {
                 InputMethodManager.HIDE_NOT_ALWAYS);
         signUpButton.setEnabled(false);
 
-        if (checkPasswordNotMatch()) {
-            sEmail = etEmail.getText().toString();
-            sPassword = etPassword.getText().toString();
-            sName = etName.getText().toString();
 
-            registerUser(sEmail, sPassword);
+        if (checkPasswordNotMatch()) {
+            checkBoxClicked();
+
         } else {
             /* passwords are different, show toast with error message */
             progressBar.setVisibility(View.GONE);
             signUpButton.setEnabled(true);
             Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
         }
+
     }
 
     private void registerUser(String sEmail, String sPassword) {
@@ -126,6 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
                         userId = currentUser.getUid();
 
                         /* upload details to fire store */
+                        
                         upload();
 
                     } else {
@@ -192,4 +199,45 @@ public class SignUpActivity extends AppCompatActivity {
         return true;
     }
 
+    /* check box terms */
+
+    private void checkBoxClicked() {
+        // Is the view now checked?
+            if ( mCheckBox.isChecked()) {
+                sEmail = etEmail.getText().toString();
+                sPassword = etPassword.getText().toString();
+                sName = etName.getText().toString();
+
+                registerUser(sEmail, sPassword);
+            } else {
+                progressBar.setVisibility(View.GONE);
+                signUpButton.setEnabled(true);
+                Toast.makeText(getApplicationContext(), "You need to agree to the terms and conditions to use the app", Toast.LENGTH_SHORT).show();
+            }
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

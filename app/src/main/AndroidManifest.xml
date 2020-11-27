@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BukolaFatunde">
         <activity android:name=".EditProfileActivity"
-            android:label="Edit Profilep"/>
+            android:label="Edit Profile"/>
         <activity android:name=".SettingsActivity"
             android:label="Settings"/>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
         <activity
             android:name=".ForgotPasswordActivity"
             android:label="Forgot Password"

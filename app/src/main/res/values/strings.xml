@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Bukola Fatunde</string>
     <string name="err_msg_password_confirm">Password Mismatch</string>
+    <string name="favorites">Favorites</string>
+    <string name="downloads">Downloads</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="settings">Settings</string>
 </resources>

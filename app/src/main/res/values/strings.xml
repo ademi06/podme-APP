@@ -10,4 +10,8 @@
     <string name="add_podcast">Add Podcast</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Key name in SharedPreferences -->
+    <string name="pref_podcast_title_key" translatable="false">pref_podcast_title</string>
+    <string name="pref_episode_title_key" translatable="false">pref_episode_title</string>
+    <string name="pref_episode_image_key" translatable="false">pref_episode_image</string>
 </resources>

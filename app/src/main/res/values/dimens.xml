@@ -10,4 +10,5 @@
     <!-- FAB -->
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="fab_press_translation_z">6dp</dimen>
+    <dimen name="size_loading">42dp</dimen>
 </resources>

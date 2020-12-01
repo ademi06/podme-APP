@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Display the list of favorite episodes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_add_pod_cast"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="afterDescendants" />
+
+    <ProgressBar
+        android:id="@+id/pb_loading_indicator"
+        android:layout_width="@dimen/size_loading"
+        android:layout_height="@dimen/size_loading"
+        android:layout_gravity="center"/>
+
+    <!-- Empty View -->
+    <TextView
+        android:id="@+id/tv_empty_offline"
+        style="@style/EmptyTextViewStyle"
+        android:textColor="@color/teal_700"
+        android:visibility="gone" />
+
+
+</FrameLayout>

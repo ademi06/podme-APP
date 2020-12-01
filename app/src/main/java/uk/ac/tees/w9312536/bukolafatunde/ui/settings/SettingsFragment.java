@@ -13,7 +13,6 @@ import uk.ac.tees.w9312536.bukolafatunde.R;
 public class SettingsFragment extends Fragment {
 
     View view;
-    RecyclerView rvDownloads;
     TextView tvEmpty;
 
 
@@ -37,8 +36,7 @@ public class SettingsFragment extends Fragment {
     }
 
     private void initUi() {
-        rvDownloads = view.findViewById(R.id.rv_downloads);
-        tvEmpty = view.findViewById(R.id.tv_empty_downloads);
+//        tvEmpty = view.findViewById(R.id.tv_empty_downloads);
     }
 }
 

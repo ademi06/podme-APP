@@ -4,4 +4,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+    <!-- Margins for the empty view -->
+    <dimen name="padding_empty_podcasts">32dp</dimen>
+    <dimen name="padding_bottom_empty_podcasts">40dp</dimen>
+    <!-- FAB -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
 </resources>

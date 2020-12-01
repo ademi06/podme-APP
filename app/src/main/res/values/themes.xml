@@ -16,4 +16,16 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Style for an empty view -->
+    <style name="EmptyTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingStart">@dimen/padding_empty_podcasts</item>
+        <item name="android:paddingLeft">@dimen/padding_empty_podcasts</item>
+        <item name="android:paddingEnd">@dimen/padding_empty_podcasts</item>
+        <item name="android:paddingRight">@dimen/padding_empty_podcasts</item>
+        <item name="android:paddingBottom">@dimen/padding_bottom_empty_podcasts</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

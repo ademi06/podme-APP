@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    tools:context="uk.ac.tees.w9312536.bukolafatunde.ui.favorites.FavoritesFragment">-->
+
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="hasFavorites"-->
+<!--            type="boolean" />-->
+
+<!--    </data>-->
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <!-- Display the list of favorite episodes -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="afterDescendants" />
+
+        <!-- Empty View -->
+        <TextView
+            android:id="@+id/tv_empty_favorites"
+            style="@style/EmptyTextViewStyle"
+            android:textColor="@color/teal_700"
+            android:visibility="gone" />
+
+    </FrameLayout>
+<!--</layout>-->

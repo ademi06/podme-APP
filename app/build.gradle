@@ -88,4 +88,8 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.0'
     //Timber for debugging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    // Circular image view with round borders
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
+    // Runtime permission
+    implementation 'pub.devrel:easypermissions:3.0.0'
 }

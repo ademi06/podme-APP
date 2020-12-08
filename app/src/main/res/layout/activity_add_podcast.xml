@@ -22,6 +22,8 @@
     <TextView
         android:id="@+id/tv_empty_offline"
         style="@style/EmptyTextViewStyle"
+        android:drawableTop="@drawable/ic_wifi"
+        android:text="@string/no_internet"
         android:textColor="@color/teal_700"
         android:visibility="gone" />
 

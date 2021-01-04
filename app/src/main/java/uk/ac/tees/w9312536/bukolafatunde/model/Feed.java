@@ -32,7 +32,7 @@ public class Feed {
         mCountry = country;
     }
 
-    public List<Result> getResults() {
+    public List<uk.ac.tees.w9312536.bukolafatunde.model.Result> getResults() {
         return mResults;
     }
 

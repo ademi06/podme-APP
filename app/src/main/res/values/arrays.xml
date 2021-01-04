@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_country_options">
+        <item>@string/pref_country_label_ca</item>
+        <item>@string/pref_country_label_kr</item>
+        <item>@string/pref_country_label_us</item>
+
+    </string-array>
+
+    <string-array name="pref_country_values">
+        <item>@string/pref_country_ca</item>
+        <item>@string/pref_country_kr</item>
+        <item>@string/pref_country_us</item>
+    </string-array>
+</resources>

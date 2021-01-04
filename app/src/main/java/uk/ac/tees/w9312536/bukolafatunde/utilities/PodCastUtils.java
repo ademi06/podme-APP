@@ -25,11 +25,14 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
 import uk.ac.tees.w9312536.bukolafatunde.R;
+import uk.ac.tees.w9312536.bukolafatunde.model.rss.Item;
+import uk.ac.tees.w9312536.bukolafatunde.model.rss.ItemImage;
 
 public class PodCastUtils {
 
@@ -143,20 +146,20 @@ public class PodCastUtils {
      * @param podcastTitle The podcast title
      * @param imageUrl The episode image URL. If the episode image does not exist, use the podcast image instead.
      */
-//    public static void updateSharedPreference(Context context, Item item, String podcastTitle, String imageUrl) {
-//        // Get an instance of SharedPreferences
-//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-//        // Get the editor object
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//
-//        // Save the string used for displaying in the app widget
-//        editor.putString(context.getString(R.string.pref_podcast_title_key), podcastTitle);
-//        editor.putString(context.getString(R.string.pref_episode_title_key), item.getTitle());
-//        editor.putString(context.getString(R.string.pref_episode_image_key), imageUrl);
-//
-//        // Save results
-//        editor.apply();
-//    }
+    public static void updateSharedPreference(Context context, Item item, String podcastTitle, String imageUrl) {
+        // Get an instance of SharedPreferences
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        // Get the editor object
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // Save the string used for displaying in the app widget
+        editor.putString(context.getString(R.string.pref_podcast_title_key), podcastTitle);
+        editor.putString(context.getString(R.string.pref_episode_title_key), item.getTitle());
+        editor.putString(context.getString(R.string.pref_episode_image_key), imageUrl);
+
+        // Save results
+        editor.apply();
+    }
 
     /**
      * Sends the update broadcast message to the app widget.
@@ -182,17 +185,17 @@ public class PodCastUtils {
      * @param item Item object which contains an episode data
      * @param podcastImage The podcast image URL
      */
-//    public static String getItemImageUrl(ClipData.Item item, String podcastImage) {
-//        List<ItemImage> itemImages = item.getItemImages();
-//        String itemImageUrl = null;
-//        if (itemImages != null) {
-//            itemImageUrl = itemImages.get(0).getItemImageHref();
-//        }
-//        if (TextUtils.isEmpty(itemImageUrl)) {
-//            itemImageUrl = podcastImage;
-//        }
-//        return itemImageUrl;
-//    }
+    public static String getItemImageUrl(Item item, String podcastImage) {
+        List<ItemImage> itemImages = item.getItemImages();
+        String itemImageUrl = null;
+        if (itemImages != null) {
+            itemImageUrl = itemImages.get(0).getItemImageHref();
+        }
+        if (TextUtils.isEmpty(itemImageUrl)) {
+            itemImageUrl = podcastImage;
+        }
+        return itemImageUrl;
+    }
 
     /**
      * Check if there is the network connectivity.
@@ -237,12 +240,12 @@ public class PodCastUtils {
      * @param item Item object that holds the current episode data
      * Reference: @see "https://stackoverflow.com/questions/8257641/java-how-to-convert-a-string-hhmmss-to-a-duration"
      */
-//    public static long getDurationInMilliSeconds(Item item) {
-//        String timestampStr = item.getITunesDuration();
-//        String[] tokens = timestampStr.split(Constants.SPLIT_COLON);
-//        int hours = Integer.parseInt(tokens[Constants.SPLIT_INDEX_ZERO]);
-//        int minutes = Integer.parseInt(tokens[Constants.SPLIT_INDEX_ONE]);
-//        int seconds = Integer.parseInt(tokens[Constants.SPLIT_INDEX_TWO]);
-//        return TimeUnit.HOURS.toSeconds(hours) + TimeUnit.MINUTES.toSeconds(minutes) + seconds;
-//    }
+    public static long getDurationInMilliSeconds(Item item) {
+        String timestampStr = item.getITunesDuration();
+        String[] tokens = timestampStr.split(Constants.SPLIT_COLON);
+        int hours = Integer.parseInt(tokens[Constants.SPLIT_INDEX_ZERO]);
+        int minutes = Integer.parseInt(tokens[Constants.SPLIT_INDEX_ONE]);
+        int seconds = Integer.parseInt(tokens[Constants.SPLIT_INDEX_TWO]);
+        return TimeUnit.HOURS.toSeconds(hours) + TimeUnit.MINUTES.toSeconds(minutes) + seconds;
+    }
 }

@@ -1,6 +1,7 @@
 package uk.ac.tees.w9312536.bukolafatunde;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -16,6 +17,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -57,19 +63,25 @@ public class SignUpActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mCheckBox = findViewById(R.id.checkbox_terms);
 
-
-        login.setOnClickListener(v -> {
-            /* navigate to login activity */
-            Intent login = new Intent(SignUpActivity.this, LoginActivity.class);
-            startActivity(login);
-            finish();
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* navigate to login activity */
+                Intent login = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(login);
+                finish();
+            }
         });
 
-        signUpButton.setOnClickListener(v -> {
-            /* validate edit text field and then proceed to sign up */
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* validate edit text field and then proceed to sign up */
 
-            register();
+                register();
+            }
         });
+
     }
 
 
@@ -123,22 +135,25 @@ public class SignUpActivity extends AppCompatActivity {
     private void registerUser(String sEmail, String sPassword) {
         /* check if email contain necessary details */
         mAuth.createUserWithEmailAndPassword(sEmail, sPassword)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        progressBar.setVisibility(View.GONE);
-                        /* Get and save the Uid to string for later upload */
-                        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                        assert currentUser != null;
-                        userId = currentUser.getUid();
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            progressBar.setVisibility(View.GONE);
+                            /* Get and save the Uid to string for later upload */
+                            currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            assert currentUser != null;
+                            userId = currentUser.getUid();
 
-                        /* upload details to fire store */
-                        
-                        upload();
+                            /* upload details to fire store */
 
-                    } else {
-                        signUpButton.setEnabled(true);
-                        Toast.makeText(getApplicationContext(), "Registration failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.GONE);
+                            upload();
+
+                        } else {
+                            signUpButton.setEnabled(true);
+                            Toast.makeText(getApplicationContext(), "Registration failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
                     }
                 });
 
@@ -164,21 +179,26 @@ public class SignUpActivity extends AppCompatActivity {
 
         /* add user to database */
         docRef.set(users)
-                .addOnSuccessListener(aVoid -> {
-                    /* send user to main activity when registration is complete */
-                    progressBar.setVisibility(View.GONE);
-                    Log.d(TAG, "onSuccess: Created User ");
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        /* send user to main activity when registration is complete */
+                        progressBar.setVisibility(View.GONE);
+                        Log.d(TAG, "onSuccess: Created User ");
 
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-
+                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 })
-                .addOnFailureListener(e -> {
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(getApplicationContext(), "Error! Failed to Create User", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "onFailure: Failed to Create User " + e.toString());
-                });
+               .addOnFailureListener(new OnFailureListener() {
+                   @Override
+                   public void onFailure(@NonNull Exception e) {
+                       progressBar.setVisibility(View.GONE);
+                       Toast.makeText(getApplicationContext(), "Error! Failed to Create User", Toast.LENGTH_SHORT).show();
+                       Log.d(TAG, "onFailure: Failed to Create User " + e.toString());
+                   }
+               });
 
 
     }

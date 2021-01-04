@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.add.AddPodcastActivity">
+    tools:context="ui.search.SearchResultsActivity">
 
     <data>
 
@@ -12,17 +11,21 @@
             type="boolean" />
 
         <variable
+            name="isEmpty"
+            type="boolean" />
+
+        <variable
             name="isOffline"
             type="boolean" />
+
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Enable D-pad navigation. Reference: @see "https://stackoverflow.com/questions/36887573/recyclerview-and-d-pad-navigation"-->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_add_pod"
+            android:id="@+id/rv_search_results"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:descendantFocusability="afterDescendants"
@@ -35,6 +38,16 @@
             android:layout_height="@dimen/size_loading"
             android:layout_gravity="center"
             app:visibleGone="@{isLoading}" />
+
+        <!-- Displays "No results found" text when there are no search results -->
+        <TextView
+            android:id="@+id/tv_empty_search"
+            style="@style/EmptyTextViewStyle"
+            android:drawableTop="@drawable/ic_magnifier"
+            android:drawablePadding="4dp"
+            android:text="@string/empty_search_results"
+            android:textColor="@color/black"
+            app:visibleGone="@{isEmpty}" />
 
         <!-- Text that indicates there is no internet connectivity. Visible when offline. -->
         <TextView

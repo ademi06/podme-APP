@@ -59,8 +59,27 @@ public class EditProfileFragment extends Fragment {
         etAboutMe = view.findViewById(R.id.edit_text_profile_about_me);
         saveButton = view.findViewById(R.id.save_profile_button);
 
-        saveButton.setOnClickListener(v -> saveToFireStore());
-        mProfileImage.setOnClickListener(v -> loadImage());
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveToFireStore();
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveToFireStore();
+            }
+        });
+
+        mProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadImage();
+            }
+        });
+
     }
 
     private void loadImage() {

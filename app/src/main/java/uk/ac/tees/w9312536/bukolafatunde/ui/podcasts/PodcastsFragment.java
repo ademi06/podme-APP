@@ -58,10 +58,13 @@ public class PodcastsFragment extends Fragment {
     }
 
     private void addPodcast() {
-        addFab.setOnClickListener(v -> {
-            //
-            Intent add = new Intent(getContext(), AddPodcastActivity.class);
-            startActivity(add);
+        addFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add = new Intent(getContext(), AddPodcastActivity.class);
+                startActivity(add);
+            }
         });
+
     }
 }

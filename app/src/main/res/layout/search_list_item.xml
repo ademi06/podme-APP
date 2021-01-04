@@ -16,7 +16,7 @@
             android:focusable="true">
 
             <ImageView
-                android:id="@+id/image_artwork"
+                android:id="@+id/iv_artwork"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/artwork_content_description"
@@ -38,8 +38,9 @@
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_artwork" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_artwork" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 </layout>

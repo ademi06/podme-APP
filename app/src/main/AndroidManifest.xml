@@ -24,9 +24,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BukolaFatunde">
 
+        <activity android:name=".ui.detail.DetailActivity"
+            android:label="Details"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
         <activity android:name=".ui.add.AddPodcastActivity"/>
         <activity android:name=".ui.search.SearchResultsActivity"/>
-        <activity android:name=".ui.subscribe.SubscribeActivity"/>
+        <activity android:name=".ui.subscribe.SubscribeActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
 
         <activity
             android:name=".EditProfileActivity"

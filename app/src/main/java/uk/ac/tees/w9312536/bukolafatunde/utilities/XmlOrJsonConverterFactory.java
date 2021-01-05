@@ -8,6 +8,7 @@ import org.simpleframework.xml.core.Persister;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
+import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,18 +28,18 @@ public class XmlOrJsonConverterFactory extends Converter.Factory {
         xml = SimpleXmlConverterFactory.createNonStrict(new Persister(new AnnotationStrategy()));
     }
 
-   // @Override
-//    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-//        for (Annotation annotation : annotations) {
-//
-//            if (annotation.annotationType() == ITunesSearchApi.Xml.class) {
-//                return xml.responseBodyConverter(type, annotations, retrofit);
-//            }
-//
-//            if (annotation.annotationType() == ITunesSearchApi.Json.class) {
-//                return json.responseBodyConverter(type, annotations, retrofit);
-//            }
-//        }
-//        return null;
-//    }
+    @Override
+    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+        for (Annotation annotation : annotations) {
+
+            if (annotation.annotationType() == ITunesSearchApi.Xml.class) {
+                return xml.responseBodyConverter(type, annotations, retrofit);
+            }
+
+            if (annotation.annotationType() == ITunesSearchApi.Json.class) {
+                return json.responseBodyConverter(type, annotations, retrofit);
+            }
+        }
+        return null;
+    }
 }

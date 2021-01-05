@@ -210,4 +210,3 @@ public class PodMeRepository {
         return mPodcastDao.loadDownloadedEpisodeByEnclosureUrl(enclosureUrl);
     }
 }
-

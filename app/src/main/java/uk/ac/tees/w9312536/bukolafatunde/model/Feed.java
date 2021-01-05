@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import javax.xml.transform.Result;
 
 public class Feed {
     @SerializedName("title")
@@ -32,7 +31,7 @@ public class Feed {
         mCountry = country;
     }
 
-    public List<uk.ac.tees.w9312536.bukolafatunde.model.Result> getResults() {
+    public List<Result> getResults() {
         return mResults;
     }
 

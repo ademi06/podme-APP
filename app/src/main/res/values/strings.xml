@@ -82,4 +82,6 @@
     <string name="empty_search_results">No results found</string>
     <string name="palette_content_desc">Background color extracted from artwork</string>
     <string name="scrim_content_desc">Gradient scrim</string>
+    <string name="download_channel_name">Download</string>
+    <string name="playback_channel_name">Playback</string>
 </resources>

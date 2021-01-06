@@ -24,7 +24,7 @@ import uk.ac.tees.w9312536.bukolafatunde.R;
 public class EditProfileFragment extends Fragment {
 
     View view;
-    EditText etName, etAboutMe;
+    EditText etName, etUsername, etBio;
     CircularImageView mProfileImage;
     Button saveButton;
 
@@ -56,7 +56,8 @@ public class EditProfileFragment extends Fragment {
     private void initUi() {
         etName = view.findViewById(R.id.edit_text_profile_edit_name);
         mProfileImage = view.findViewById(R.id.profile_image);
-        etAboutMe = view.findViewById(R.id.edit_text_profile_about_me);
+        etUsername = view.findViewById(R.id.edit_username);
+        etBio = view.findViewById(R.id.edit_bio);
         saveButton = view.findViewById(R.id.save_profile_button);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +104,8 @@ public class EditProfileFragment extends Fragment {
 
     private void saveToFireStore() {
         String name = etName.getText().toString();
-        String aboutMe = etAboutMe.getText().toString();
+        String username = etUsername.getText().toString();
+        String bio = etBio.getText().toString();
     }
 }
 

@@ -16,8 +16,12 @@
     <string name="pref_episode_image_key" translatable="false">pref_episode_image</string>
     <string name="no_internet">Please check your internet connection and try again</string>
     <string name="name">Name</string>
-    <string name="enter_name">Enter Your Name</string>
-    <string name="about_me">About Me</string>
+    <string name="edit_name">Edit Name</string>
+    <string name="Username">Username</string>
+    <string name="edit_username">Edit Username</string>
+    <string name="Bio">Bio</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="Change_profile_picture">Change Profile Picture</string>
     <string name="save">Save</string>
     <string name="rationale_storage">Access to storage is needed. Please grant it to continue</string>
     <string name="artwork_content_description">Artwork</string>
@@ -41,8 +45,6 @@
     <string name="snackbar_added_to_fav">Added to Favorites</string>
     <string name="snackbar_removed_from_fav">Removed from Favorites</string>
     <string name="snackbar_support_audio">Sorry, we currently only support audio podcasts</string>
-    <string name="enter_username">Enter Username</string>
-    <string name="Username">Username</string>
     <string name="date_of_birth">Date of birth</string>
     <!-- Menu actions -->
     <string name="action_settings">Settings</string>
@@ -90,4 +92,22 @@
     <string name="empty_podcasts">You do not have any subscriptions.\nYou can click         the + button in the bottom right corner to add new podcasts.</string>
     <string name="action_delete">Delete</string>
     <string name="empty_favorites">Start adding your favorite episodes by tapping a heart button!</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="string_edit_bio" />
+    <string name="title_activity_settings2">SettingsActivity2</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

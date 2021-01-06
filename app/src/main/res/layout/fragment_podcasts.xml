@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.podcasts.PodcastsFragment">
 
-        <!-- Display the list of favorite episodes -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_podcasts"
+    <data>
+
+        <variable
+            name="hasPodcasts"
+            type="boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:descendantFocusability="afterDescendants" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Empty View -->
-        <TextView
-            android:id="@+id/tv_empty_podcasts"
-            style="@style/EmptyTextViewStyle"
-            android:textColor="@color/teal_700"
-            android:visibility="gone" />
+            <!-- Display the subscribed podcast list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_podcasts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="afterDescendants"
+                app:visibleGone="@{hasPodcasts}" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:contentDescription="@string/add_podcast"
-            android:src="@drawable/ic_baseline_add"
-            app:fabSize="normal"
-            app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+            <!-- Empty view -->
+            <TextView
+                android:id="@+id/tv_empty_podcasts"
+                style="@style/EmptyTextViewStyle"
+                android:textColor="@color/color_empty_podcasts"
+                android:visibility="gone"
+                app:visibleGone="@{!hasPodcasts}" />
 
-    </FrameLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:contentDescription="@string/add_podcast"
+                android:src="@drawable/ic_baseline_add"
+                app:fabSize="normal"
+                app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

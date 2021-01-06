@@ -11,8 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-
 import uk.ac.tees.w9312536.bukolafatunde.databinding.ActivityMainBinding;
 import uk.ac.tees.w9312536.bukolafatunde.ui.downloads.DownloadsFragment;
 import uk.ac.tees.w9312536.bukolafatunde.ui.editprofile.EditProfileFragment;
@@ -23,7 +21,6 @@ import uk.ac.tees.w9312536.bukolafatunde.ui.settings.SettingsFragment;
 import static uk.ac.tees.w9312536.bukolafatunde.utilities.Constants.INDEX_ZERO;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    FirebaseAuth mAuth;
 
     /** This field is used for data binding **/
     ActivityMainBinding mMainBinding;
@@ -43,18 +40,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mMainBinding.navView.setNavigationItemSelectedListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
 
         // set pod cast fragment as default fragment when starting the app
         if (savedInstanceState == null) {
             onNavigationItemSelected(mMainBinding.navView.getMenu().getItem(INDEX_ZERO).setChecked(true));
         }
 
-//        findViewById(R.id.buttonLogout).setOnClickListener(v -> {
-//            FirebaseAuth.getInstance().signOut();
-//            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//            finish();
-//        });
     }
 
     @Override

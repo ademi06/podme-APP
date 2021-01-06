@@ -84,4 +84,10 @@
     <string name="scrim_content_desc">Gradient scrim</string>
     <string name="download_channel_name">Download</string>
     <string name="playback_channel_name">Playback</string>
+    <string name="check_out">"Check out "</string>
+    <string name="chooser_title">Share Episode</string>
+    <string name="empty_downloads">You have not downloaded any episodes</string>
+    <string name="empty_podcasts">You do not have any subscriptions.\nYou can click         the + button in the bottom right corner to add new podcasts.</string>
+    <string name="action_delete">Delete</string>
+    <string name="empty_favorites">Start adding your favorite episodes by tapping a heart button!</string>
 </resources>

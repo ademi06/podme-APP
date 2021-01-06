@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.sanxynet.candypod.com.sanxynet.candypod.ui.downloads.DownloadsFragment">
 
-    <!-- Display the list of favorite episodes -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_downloads"
+    <data>
+
+        <variable
+            name="hasDownloads"
+            type="boolean" />
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:descendantFocusability="afterDescendants" />
+        android:layout_height="match_parent">
 
-    <!-- Empty View -->
-    <TextView
-        android:id="@+id/tv_empty_downloads"
-        style="@style/EmptyTextViewStyle"
-        android:textColor="@color/teal_700"
-        android:visibility="gone" />
+        <!-- Displays the list of downloaded episodes -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_downloads"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="afterDescendants"
+            app:visibleGone="@{hasDownloads}" />
 
+        <!-- An empty view that will be shown to users to indicate that there are no downloaded episodes -->
+        <TextView
+            android:id="@+id/tv_empty_downloads"
+            style="@style/EmptyTextViewStyle"
+            android:textColor="@color/color_empty_downloads"
+            android:visibility="gone"
+            app:visibleGone="@{!hasDownloads}" />
 
-</FrameLayout>
+    </FrameLayout>
+</layout>

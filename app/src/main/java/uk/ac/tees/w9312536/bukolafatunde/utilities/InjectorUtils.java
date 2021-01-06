@@ -7,6 +7,10 @@ import uk.ac.tees.w9312536.bukolafatunde.data.PodMeDatabase;
 import uk.ac.tees.w9312536.bukolafatunde.data.PodMeRepository;
 import uk.ac.tees.w9312536.bukolafatunde.ui.add.AddPodViewModelFactory;
 import uk.ac.tees.w9312536.bukolafatunde.ui.detail.PodcastEntryViewModelFactory;
+import uk.ac.tees.w9312536.bukolafatunde.ui.downloads.DownloadsViewModelFactory;
+import uk.ac.tees.w9312536.bukolafatunde.ui.favorites.FavViewModelFactory;
+import uk.ac.tees.w9312536.bukolafatunde.ui.nowplaying.DownloadEntryViewModelFactory;
+import uk.ac.tees.w9312536.bukolafatunde.ui.nowplaying.FavoriteEntryViewModelFactory;
 import uk.ac.tees.w9312536.bukolafatunde.ui.podcasts.PodcastsViewModelFactory;
 import uk.ac.tees.w9312536.bukolafatunde.ui.search.SearchViewModelFactory;
 import uk.ac.tees.w9312536.bukolafatunde.ui.subscribe.RssFeedViewModelFactory;
@@ -52,26 +56,26 @@ public class InjectorUtils {
         return new PodcastsViewModelFactory(repository);
     }
 
-//    public static FavoriteEntryViewModelFactory provideFavoriteEntryViewModelFactory(Context context, String url) {
-//        CandyPodRepository repository = provideRepository(context.getApplicationContext());
-//        return new FavoriteEntryViewModelFactory(repository, url);
-//    }
-//
-//    public static FavViewModelFactory provideFavViewModelFactory(Context context) {
-//        CandyPodRepository repository = provideRepository(context.getApplicationContext());
-//        return new FavViewModelFactory(repository);
-//    }
-//
-//    public static DownloadsViewModelFactory provideDownloadsViewModelFactory(Context context) {
-//        CandyPodRepository repository = provideRepository(context.getApplicationContext());
-//        return new DownloadsViewModelFactory(repository);
-//    }
-//
-//    public static DownloadEntryViewModelFactory provideDownloadEntryViewModelFactory(
-//            Context context, String enclosureUrl) {
-//        CandyPodRepository repository = provideRepository(context.getApplicationContext());
-//        return new DownloadEntryViewModelFactory(repository, enclosureUrl);
-//    }
+    public static FavoriteEntryViewModelFactory provideFavoriteEntryViewModelFactory(Context context, String url) {
+        PodMeRepository repository = provideRepository(context.getApplicationContext());
+        return new FavoriteEntryViewModelFactory(repository, url);
+    }
+
+    public static FavViewModelFactory provideFavViewModelFactory(Context context) {
+        PodMeRepository repository = provideRepository(context.getApplicationContext());
+        return new FavViewModelFactory(repository);
+    }
+
+    public static DownloadsViewModelFactory provideDownloadsViewModelFactory(Context context) {
+        PodMeRepository repository = provideRepository(context.getApplicationContext());
+        return new DownloadsViewModelFactory(repository);
+    }
+
+    public static DownloadEntryViewModelFactory provideDownloadEntryViewModelFactory(
+            Context context, String enclosureUrl) {
+        PodMeRepository repository = provideRepository(context.getApplicationContext());
+        return new DownloadEntryViewModelFactory(repository, enclosureUrl);
+    }
 
     public static SearchViewModelFactory provideSearchViewModelFactory(
             Context context, String searchUrl, String country, String media, String term) {

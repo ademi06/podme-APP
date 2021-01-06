@@ -11,10 +11,9 @@
     <LinearLayout
         android:id="@+id/linearLayoutProfileEditName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="751dp"
         android:background="#ffffff"
-        >
+        android:orientation="vertical">
 
 
         <com.mikhaellopez.circularimageview.CircularImageView
@@ -45,7 +44,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <TextView
             android:layout_width="347dp"

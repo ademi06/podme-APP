@@ -176,6 +176,9 @@ public class SignUpActivity extends AppCompatActivity {
         users.put("email", sEmail);
         users.put("date_of_creation", saveCurrentDate);
         users.put("time_of_creation", saveCurrentTime);
+        users.put("username", "");
+        users.put("bio", "");
+        users.put("image", "");
 
         /* add user to database */
         docRef.set(users)

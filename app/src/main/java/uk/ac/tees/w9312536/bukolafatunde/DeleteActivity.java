@@ -78,6 +78,5 @@ public class DeleteActivity extends AppCompatActivity {
 
 
             }
-        });
-    }
-}
+        }
+

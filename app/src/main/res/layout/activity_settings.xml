@@ -20,35 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="111dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/Notification_Settings"
-            android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:drawableStart="@drawable/ic_baseline_notifications"
-            android:drawablePadding="20dp"
-            android:layout_below="@+id/loginLinearLayout"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:text="Notification"
-            android:textSize="18sp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/Storage_Settings"
-            android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:drawableStart="@drawable/ic_baseline_sd_storage"
-            android:drawablePadding="20dp"
-            android:layout_below="@+id/loginLinearLayout"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:text="Storage"
-            android:textSize="18sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Location_Settings"
             android:layout_width="347dp"
             android:layout_height="43dp"
@@ -62,21 +35,23 @@
             android:text="Location"
             android:textSize="18sp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LogOut_Settings"
-            android:layout_width="347dp"
+            android:layout_width="345dp"
             android:layout_height="43dp"
-            android:drawableStart="@drawable/ic_baseline_remove_circle"
-            android:drawablePadding="20dp"
             android:layout_below="@+id/loginLinearLayout"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_baseline_remove_circle"
+            android:drawablePadding="20dp"
             android:padding="5dp"
             android:text="Log Out"
             android:textSize="18sp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Delete_Settings"
             android:layout_width="347dp"
             android:layout_height="43dp"
@@ -89,6 +64,7 @@
             android:padding="5dp"
             android:text="Delete Account"
             android:textSize="18sp" />
+
 
 
     </LinearLayout>

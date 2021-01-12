@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.settings.SettingsFragment">
+    tools:context="uk.ac.tees.w9312536.PodMe.ui.settings.SettingsFragment">
 
 <!-- Name -->
 
@@ -15,46 +15,52 @@
         android:orientation="vertical">
 
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="111dp" />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/location_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="347dp"
             android:layout_height="43dp"
-            android:background="@color/white"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_baseline_location"
             android:drawablePadding="20dp"
             android:padding="5dp"
             android:text="Location"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logout_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="345dp"
             android:layout_height="43dp"
-            android:background="@color/white"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_baseline_remove_circle"
             android:drawablePadding="20dp"
             android:padding="5dp"
             android:text="Log Out"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/delete_account_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="347dp"
             android:layout_height="43dp"
-            android:background="@color/white"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_baseline_delete"
             android:drawablePadding="20dp"
             android:padding="5dp"
             android:text="Delete Account"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
 

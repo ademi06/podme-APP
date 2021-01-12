@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LocationActivity">
+
+    <!-- Name -->
+
+    <LinearLayout
+        android:id="@+id/linearLayoutProfileEditName"
+        android:layout_width="match_parent"
+        android:layout_height="751dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+
+        <TextView
+            android:id="@+id/lati"
+            android:layout_width="347dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:hint="Latitude"
+            android:textColorHint="@color/purple_200"
+            android:maxLength="30"
+            android:minHeight="20dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+
+
+
+
+        <TextView
+            android:id="@+id/longi"
+            android:layout_width="347dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:hint="Longitude"
+            android:textColorHint="@color/purple_200"
+            android:maxLength="30"
+            android:minHeight="20dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+
+        <TextView
+            android:id="@+id/countri"
+            android:layout_width="347dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:hint="Country"
+            android:textColorHint="@color/purple_200"
+            android:maxLength="30"
+            android:minHeight="20dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/localty"
+            android:layout_width="347dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:hint="Locality"
+            android:textColorHint="@color/purple_200"
+            android:maxLength="30"
+            android:minHeight="20dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="347dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:hint="Current address"
+            android:textColorHint="@color/purple_200"
+            android:maxLength="30"
+            android:minHeight="20dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/load_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Current Address" />
+
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/load_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Map Location" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

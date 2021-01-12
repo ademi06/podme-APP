@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.podcasts.PodcastsFragment">
+    tools:context="uk.ac.tees.w9312536.PodMe.ui.podcasts.PodcastsFragment">
 
     <data>
 

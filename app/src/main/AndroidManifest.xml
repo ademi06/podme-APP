@@ -3,6 +3,9 @@
     package="uk.ac.tees.w9312536.bukolafatunde">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -15,82 +18,114 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="PodMe"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BukolaFatunde">
 
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+
+
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
         <activity
-            android:name=".ui.detail.DetailActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ui.detail.DetailActivity"
             android:label="Details"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".ui.add.AddPodcastActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ui.add.AddPodcastActivity"
             android:label="Add Podcast">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="uk.ac.tees.w9312536.PodMe.MainActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".ui.search.SearchResultsActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ui.search.SearchResultsActivity"
             android:label="Search"
             android:launchMode="singleTop"
-            android:parentActivityName=".ui.add.AddPodcastActivity">
+            android:parentActivityName="uk.ac.tees.w9312536.PodMe.ui.add.AddPodcastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.add.AddPodcastActivity" />
+                android:value="uk.ac.tees.w9312536.PodMe.ui.add.AddPodcastActivity" />
         </activity>
         <activity
-            android:name=".ui.subscribe.SubscribeActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ui.subscribe.SubscribeActivity"
             android:label="Subscribe"
-            android:parentActivityName=".ui.add.AddPodcastActivity"
+            android:parentActivityName="uk.ac.tees.w9312536.PodMe.ui.add.AddPodcastActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".ui.nowplaying.NowPlayingActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ui.nowplaying.NowPlayingActivity"
             android:label="Now Playing"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.MainActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.ForgotPasswordActivity"
             android:label="Forgot Password"
-            android:parentActivityName=".LoginActivity" />
+            android:parentActivityName="uk.ac.tees.w9312536.PodMe.LoginActivity" />
         <activity
-            android:name=".SignUpActivity"
+            android:name="uk.ac.tees.w9312536.PodMe.SignUpActivity"
             android:label="Sign Up"
-            android:parentActivityName=".LoginActivity" />
-        <activity android:name=".LoginActivity">
+            android:parentActivityName="uk.ac.tees.w9312536.PodMe.LoginActivity" />
+        <activity android:name="uk.ac.tees.w9312536.PodMe.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="uk.ac.tees.w9312536.PodMe.LocationActivity"
+            android:label="@string/title_activity_location">
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBxK9Yo1AhjIGllOy6SoJirN6w380lvi7g" />
+
+        <activity android:name="uk.ac.tees.w9312536.PodMe.MapActivity" />
 
         <service
-            android:name=".service.PodcastService"
+            android:name="uk.ac.tees.w9312536.PodMe.service.PodcastService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.media.browse.MediaBrowserService" />
             </intent-filter>
         </service>
-        <service android:name=".service.PodcastDownloadService" />
+        <service android:name="uk.ac.tees.w9312536.PodMe.service.PodcastDownloadService" />
         <service
             android:name="com.google.android.exoplayer2.scheduler.PlatformScheduler$PlatformSchedulerService"
             android:exported="true"
